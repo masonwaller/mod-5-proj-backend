@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  temp: 1
+  weather: 1
+  pollution: 1
+  surf: 1
+  address: MyString
+
+two:
+  name: MyString
+  temp: 1
+  weather: 1
+  pollution: 1
+  surf: 1
+  address: MyString
