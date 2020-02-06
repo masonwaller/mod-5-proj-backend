@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2020_01_30_224146) do
 
   create_table "beaches", force: :cascade do |t|
     t.string "name"
-    t.integer "temp"
-    t.integer "weather"
-    t.integer "pollution"
-    t.integer "surf"
+    t.float "temp"
+    t.float "weather"
+    t.float "pollution"
+    t.float "surf"
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
