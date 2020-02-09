@@ -7,12 +7,13 @@ class Api::V1::ReviewsController < ApplicationController
 
     def create
         @new = Review.create(review_params)
-        puts @new
+        @beach = Beach.find(@new.beach_id)
+        render json: {beach: @beach}, include: ['reviews', 'users']
     end
 
     private
 
     def review_params
-        params.permit(:user_id, :beach_id, :text, :date)
+        params.require(:review).permit(:user_id, :beach_id, :text, :date)
     end
 end
