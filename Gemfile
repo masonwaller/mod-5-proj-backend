@@ -47,3 +47,6 @@ gem "active_model_serializers", "~> 0.10.10"
 gem "faker", "~> 2.10"
 
 gem 'twilio-ruby'
+
+gem 'nexmo'
+gem 'dotenv-rails'

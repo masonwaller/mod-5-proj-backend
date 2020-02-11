@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :reviews
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
+      resources :sms
     end
   end
 end

@@ -1,5 +1,6 @@
-class Api::V1::SmsController < ApplicationController
 
+class Api::V1::SmsController < ApplicationController
+  
         # Shows the UI for sending an SMS
         def index
           @sms = Sms.new
@@ -8,11 +9,11 @@ class Api::V1::SmsController < ApplicationController
         # Sends an SMS
         def create
           # Create a SMS record to be stored in the database
-          @sms = Sms.new(safe_params, to: "18058891264", from: "19162600332")
+          @sms = Sm.new(safe_params)
       
           if @sms.save
             deliver @sms
-            notice: 'SMS Sent'
+            # notice: 'SMS Sent'
           else
             flash[:alert] = 'Something went wrong'
             render :index
@@ -32,13 +33,13 @@ class Api::V1::SmsController < ApplicationController
         # Determines the params that can be
         # stored in the database safely
         def safe_params
-          params.require(:sms).permit(:text)
+          params.require(:sms).permit(:to, :from, :text)
         end
       
         # Uses the Nexmo API to send the stored
         # SMS message
         def deliver sms
-          response = nexmo.send_message(
+          response = nexmo.sms.send(
             from: sms.from,
             to: sms.to,
             text: sms.text
