@@ -27,7 +27,7 @@ class Api::V1::SmsController < ApplicationController
           # We do not pass in any API key or secret as
           # we're using environment variables `NEXMO_API_KEY`
           # and `NEXMO_API_SECRET`
-          client = Nexmo::Client.new(api_key: ENV[“NEXMO_API_KEY”], api_secret: "vW9Op6nCm5Qaiced")
+          client = Nexmo::Client.new(api_key: ENV['NEXMO_API_KEY'], api_secret: ENV['NEXMO_API_SECRET'])
         end
       
         # Determines the params that can be
